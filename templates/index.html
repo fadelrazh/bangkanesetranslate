@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Bangkanese Translate</title>
+    <link rel="icon" href="//ssl.gstatic.com/translate/favicon.ico" sizes="64x64">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+      <div class="logo"><img src="{{ url_for('static',filename='images/favicon.png') }}" height="30px" /> Bangkanese Translate</div>
+       <!--<a href="{{ url_for('static',filename='images/favicon.ico') }}">INFORMATION</a>-->
+    </nav>
+    <form action="{{url_for('translate')}}" method="post">
+        <div class="container">
+            <div class="wrapper">
+                <div class="text-input">
+                    <textarea id="source_text" name="source_text" spellcheck="false" class="from-text" placeholder="Enter text">{{sentance}}</textarea>
+                    <textarea id="target_text" name="target_text" spellcheck="false" class="to-text" disabled readonly placeholder="Translation">{{translate}}</textarea>
+                </div>
+                <ul class="controls">
+                    <li class="row from">
+                        <select id="source_language" name="source_language">
+                            <option value="bn">Bangka</option>
+                            <option value="id">Indonesia</option>
+                            <option value="en">English</option>
+                        </select>
+                    </li>
+                    <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+                    <li class="row to">
+                        <select id="target_language" name="target_language">
+                            <option value="id">Indonesia</option>
+                            <option value="bn">Bangka</option>
+                            <option value="en">English</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" value="Translate">Translate</button>
+        </div>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/jquery.min.js"><\/script>')</script>
+<script type = "text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script type = "text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>
+<script type = "text/javascript" src="{{ url_for('static', filename='js/countries.js')}}"></script>
+</html>
